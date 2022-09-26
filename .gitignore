@@ -1,0 +1,7 @@
+# server side
+server/package-lock.json
+server/node_modules
+
+# client side
+client/package-lock.json
+client/node_modules
