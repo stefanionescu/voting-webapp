@@ -1,6 +1,6 @@
 class Poll {
     constructor(root, title) {
-        this.root     = root;
+        this.root = root;
         this.selected = sessionStorage.getItem("poll-selected");
         this.endpoint = "http://localhost:3000/poll";
 
@@ -13,7 +13,7 @@ class Poll {
 
     async _refresh() {
         const response = await fetch(this.endpoint);
-        const data     = await response.json();
+        const data = await response.json();
 
         this.root.querySelectorAll(".poll__option").forEach(option => {
             option.remove();
@@ -21,10 +21,10 @@ class Poll {
 
         for (const option of data) {
             const template = document.createElement("template");
-            const fragment = teplate.content;
+            const fragment = template.content;
 
-            fragment.innerHTML = `
-                <div class="poll__option ${ this.selected == option.label ? "poll__option--selected" : "" }">
+            template.innerHTML = `
+                <div class="poll__option ${ this.selected == option.label ? "poll__option--selected": "" }">
                     <div class="poll__option-fill"></div>
                     <div class="poll__option-info">
                         <span class="poll__label">${ option.label }</span>
@@ -51,14 +51,14 @@ class Poll {
                 });
             }
 
-            fragment.querySelector(".poll__option-fill").style.width = `${ option.percentage }%`
+            fragment.querySelector(".poll__option-fill").style.width = `${ option.percentage }%`;
 
             this.root.appendChild(fragment);
         }
     }
 }
 
-const p = new Poll {
+const p = new Poll(
     document.querySelector(".poll"),
     "Which one do you prefer?"
-}
+);
