@@ -1,0 +1,15 @@
+{
+  "name": "voting-webapp-server",
+  "version": "1.0.0",
+  "description": "Simple server hosting data for a voting webapp",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "keywords": ["javascript", "express", "react"],
+  "author": "Stefan Ionescu @sionescu",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1"
+  }
+}
